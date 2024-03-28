@@ -1,17 +1,28 @@
 package org.uni;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import org.uni.model.ArrayMap;
+
+import java.util.Arrays;
+import java.util.Map;
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        ArrayMap<String, String> map = new ArrayMap<>();
+        map.put("1", "12");
+        map.put("2", "15");
+        map.put("3", "15");
+        map.put("4", "15");
+        map.put("5", "15");
+        map.put("6", "15");
+        map.put("7", "15");
+        map.put("8", "15");
+        map.put("9", "15");
+        map.put("10", "15");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        String mapGetValue = map.get("10");
+
+        System.out.println(mapGetValue);
+        System.out.println(map.size());
     }
 }
