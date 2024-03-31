@@ -19,7 +19,7 @@ public class ArrayMap<K, V> {
             } else {
                 //vergrößern des Arrays
                 growArray();
-                //rekursive Funktion
+                //rekursive methode
                 put(key, value);
             }
         } else {
