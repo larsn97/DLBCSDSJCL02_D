@@ -1,6 +1,5 @@
 package org.uni.model;
 
-
 public class ArrayMap<K, V> {
 
     Entry<K, V>[] table;
@@ -14,11 +13,8 @@ public class ArrayMap<K, V> {
     public void put(K key, V value) {
         int index = getIndex(key);
 
-
-        V oldValue = null;
         if(table[index] != null) {
             if(table[index].key.equals(key)) {
-                oldValue = table[index].value;
                 table[index].value = value;
             } else {
                 //vergrößern des Arrays
@@ -37,12 +33,47 @@ public class ArrayMap<K, V> {
     }
 
     public V get(K key) {
-        for(int i = 0; i < table.length; i++) {
-            if(table[i] != null && key.equals(table[i].key)) {
-                return table[i].value;
+        for (Entry<K, V> entry : table) {
+            if (entry != null && key.equals(entry.key)) {
+                return entry.value;
             }
         }
         return null;
+    }
+
+    public void remove(K key) {
+        for(int i = 0; i < table.length; i++)
+            if (table[i] != null && table[i].key.equals(key)) {
+                table[i] = null;
+                size--;
+        }
+    }
+
+    public boolean containsKey(K key) {
+        for (Entry<K, V> kvEntry : table) {
+            if (kvEntry != null && kvEntry.key.equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsValue(V value) {
+        for (Entry<K, V> entry : table) {
+            if (entry != null && entry.value.equals(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isEmpty() {
+        for(Entry<K, V> entry : table) {
+            if(entry == null) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private int getIndex(K key) {
