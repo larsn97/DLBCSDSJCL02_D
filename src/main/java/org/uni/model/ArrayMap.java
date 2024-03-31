@@ -68,12 +68,7 @@ public class ArrayMap<K, V> {
     }
 
     public boolean isEmpty() {
-        for(Entry<K, V> entry : table) {
-            if(entry == null) {
-                return true;
-            }
-        }
-        return false;
+        return size == 0;
     }
 
     private int getIndex(K key) {
