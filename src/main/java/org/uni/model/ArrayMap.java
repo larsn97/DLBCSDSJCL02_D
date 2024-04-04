@@ -32,9 +32,9 @@ public class ArrayMap<K, V> {
         return size;
     }
 
-    public V get(K key) {
+    public V get(K k) {
         for (Entry<K, V> entry : table) {
-            if (entry != null && key.equals(entry.key)) {
+            if (entry != null && k.equals(entry.key)) {
                 return entry.value;
             }
         }
